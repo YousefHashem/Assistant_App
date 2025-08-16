@@ -82,3 +82,28 @@ public class ClickableTextView extends AppCompatTextView {
         setMovementMethod(LinkMovementMethod.getInstance());
     }
 }
+
+//####################### usage for single word
+ClickableTextView newUserText = findViewById(R.id.clickableText);
+
+Map<String, View.OnClickListener> map = new HashMap<>();
+map.put("Signup", v -> {
+    // هنا ضع الكود عند الضغط على Signup
+    Toast.makeText(this, "Signup clicked", Toast.LENGTH_SHORT).show();
+});
+
+String fullText = "New to ReZone? Signup";
+newUserText.setClickableParts(map, fullText, R.color.textPrimary);
+
+//####################### usage for multi words
+Map<String, View.OnClickListener> map3 = new HashMap<>();
+map3.put("Terms of Use", v -> {
+    Toast.makeText(this, "Terms clicked", Toast.LENGTH_SHORT).show();
+});
+map3.put("Privacy Policy", v -> {
+    Toast.makeText(this, "Privacy clicked", Toast.LENGTH_SHORT).show();
+});
+
+String fullText3 = "By signing up, you agree to our Terms of Use and Privacy Policy.";
+termsPrivacyText.setClickableParts(map3, fullText3, R.color.backgroundLight);
+
